@@ -47,7 +47,7 @@ export const Content: React.FC<Props> = ({ Children }) => {
           </Timeline>
         </Scene>
       </Controller>
-      <div className="pt-24 pb-64">
+      <div className="pt-24 pb-64 px-4">
         <Children />
       </div>
       <Modal open={open} close={closeModal} />
