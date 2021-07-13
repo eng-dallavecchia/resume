@@ -11,6 +11,7 @@ interface Props {
 
 export const Content: React.FC<Props> = ({ Children }) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [height, setHeight] = useState<number>(474);
   const ref = useRef<HTMLDivElement>(null);
 
   const openModal = (): void => {
@@ -21,23 +22,33 @@ export const Content: React.FC<Props> = ({ Children }) => {
     setOpen(false);
   };
 
+  const getWindowHeight = (): void => {
+    const num = document.documentElement.offsetHeight - window.innerHeight;
+    setHeight(num);
+  };
+
   const onWindowScroll = (e: Event): void => {
-    const totalHeight = document.documentElement.scrollHeight;
-    const innerHeight = window.innerHeight;
-    if (totalHeight - innerHeight - window.scrollY < 0.1) openModal();
+    console.log(height, "h");
+    if (height - window.scrollY < 0.1) openModal();
   };
 
   useEffect(() => {
     window.addEventListener("scroll", debounce(onWindowScroll, 200));
-
-    return () =>
+    return () => {
       window.removeEventListener("scroll", debounce(onWindowScroll, 200));
+    };
+  }, []);
+
+  useEffect(() => {
+    const num = document.documentElement.offsetHeight - window.innerHeight;
+    console.log(num, "oi");
+    setHeight(num);
   }, []);
 
   return (
     <div className="bg-blue-200">
       <Controller>
-        <Scene duration={1900} triggerHook={0.1} indicators={false}>
+        <Scene duration={1800} triggerHook={0} indicators={false}>
           <Timeline target={<Cup ref={ref} />}>
             <Tween
               from={{ backgroundPosition: "-150px 50px" }}

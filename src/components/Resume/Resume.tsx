@@ -23,14 +23,19 @@ export const Resume: React.FC = () => {
   return (
     <>
       <Title />
-      <Tech title={"Introduction"} text={introText} />
-      <Tech title={"React"} text={reactText} image={react} />
-      <Tech title={"Angular"} text={angularText} image={angular} />
-      <Tech title={"MySQL"} text={mysqlText} image={mysql} />
-      <Tech title={"MongoDB"} text={mongoDBText} image={mongodb} />
-      <Tech title={"Sequelize"} text={sequelizeText} image={sequelize} />
-      <Tech title={"Jest"} text={jestText} image={jest} />
-      <Tech title={"Final words"} text={finalWords} image={grains} />
+
+      <div className="flex justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 max-w-screen-xl gap-x-4 max-h-full">
+          <Tech title={"Introduction"} text={introText} />
+          <Tech title={"React"} text={reactText} image={react} />
+          <Tech title={"Angular"} text={angularText} image={angular} />
+          <Tech title={"MySQL"} text={mysqlText} image={mysql} />
+          <Tech title={"MongoDB"} text={mongoDBText} image={mongodb} />
+          <Tech title={"Sequelize"} text={sequelizeText} image={sequelize} />
+          <Tech title={"Jest"} text={jestText} image={jest} />
+          <Tech title={"Final words"} text={finalWords} image={grains} />
+        </div>
+      </div>
     </>
   );
 };

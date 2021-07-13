@@ -6,7 +6,7 @@ interface Props {
 
 export const Tech: React.FC<Props> = ({ title, text, image }) => {
   return (
-    <div className="max-w-xl py-4 px-8 bg-white shadow-lg rounded-lg my-16 mx-auto">
+    <div className="max-w-xl py-4 px-8 bg-white shadow-lg rounded-lg my-6 mx-auto">
       {image && (
         <div className="flex justify-center md:justify-end -mt-12">
           <img

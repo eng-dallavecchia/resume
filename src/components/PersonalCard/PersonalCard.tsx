@@ -7,16 +7,6 @@ import { Email } from "../Email/Email";
 import { useState } from "react";
 
 export const PersonalCard: React.FC = () => {
-  const [openEmail, setEmail] = useState<boolean>(false);
-
-  const openDialog = (): void => {
-    setEmail(true);
-  };
-
-  const closeDialog = (): void => {
-    setEmail(false);
-  };
-
   return (
     <div className="bg-blue-200 h-screen pt-44 pb-36">
       <div className="bg-white w-full max-w-md mx-auto rounded-lg shadow-lg justify-center pt-4">
@@ -35,29 +25,26 @@ export const PersonalCard: React.FC = () => {
             "Hey! Let's keep in touch. Click one the links bellow to check out my social media:"
           }
         </div>
-        <div className="flex flex-row justify-center mx-8 pb-4 gap-4">
-          <div>
-            <button onClick={openDialog}>
-              <SocialMedia title={"Email"} image={email} />
-            </button>
-          </div>
-          <div>
-            <SocialMedia
-              title={"Github"}
-              image={github}
-              link={"https://github.com/eng-dallavecchia"}
-            />
-          </div>
-          <div>
-            <SocialMedia
-              title={"LinkedIn"}
-              image={linkedin}
-              link={"https://www.linkedin.com/in/gabrieldallavecchia/"}
-            />
-          </div>
+        <div className="flex flex-row justify-center mx-8 pb-4">
+          <SocialMedia
+            title={"Email"}
+            image={email}
+            link={"mailto:gabrieldallavecchia@live.com"}
+          />
+
+          <SocialMedia
+            title={"Github"}
+            image={github}
+            link={"https://github.com/eng-dallavecchia"}
+          />
+
+          <SocialMedia
+            title={"LinkedIn"}
+            image={linkedin}
+            link={"https://www.linkedin.com/in/gabrieldallavecchia/"}
+          />
         </div>
       </div>
-      <Email open={openEmail} close={closeDialog} />
     </div>
   );
 };
