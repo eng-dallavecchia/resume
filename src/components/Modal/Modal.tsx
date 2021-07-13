@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import coffeeMug from "../../images/coffeeMug.png";
 
 interface Props {

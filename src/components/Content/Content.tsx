@@ -11,7 +11,7 @@ interface Props {
 
 export const Content: React.FC<Props> = ({ Children }) => {
   const [open, setOpen] = useState<boolean>(false);
-  const [height, setHeight] = useState<number>(474);
+  const [height, setHeight] = useState<number>(1900);
   const ref = useRef<HTMLDivElement>(null);
 
   const openModal = (): void => {
@@ -23,32 +23,39 @@ export const Content: React.FC<Props> = ({ Children }) => {
   };
 
   const getWindowHeight = (): void => {
-    const num = document.documentElement.offsetHeight - window.innerHeight;
-    setHeight(num);
+    setHeight(document.documentElement.offsetHeight - window.innerHeight);
   };
 
   const onWindowScroll = (e: Event): void => {
-    console.log(height, "h");
-    if (height - window.scrollY < 0.1) openModal();
+    if (
+      document.documentElement.offsetHeight -
+        window.innerHeight -
+        window.scrollY <
+      0.1
+    )
+      openModal();
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", debounce(onWindowScroll, 200));
-    return () => {
-      window.removeEventListener("scroll", debounce(onWindowScroll, 200));
-    };
+    getWindowHeight();
   }, []);
 
   useEffect(() => {
-    const num = document.documentElement.offsetHeight - window.innerHeight;
-    console.log(num, "oi");
-    setHeight(num);
+    window.addEventListener("scroll", debounce(onWindowScroll, 200));
+    return () =>
+      window.removeEventListener("scroll", debounce(onWindowScroll, 200));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", getWindowHeight);
+    return () => window.removeEventListener("resize", getWindowHeight);
   }, []);
 
   return (
     <div className="bg-blue-200">
       <Controller>
-        <Scene duration={1800} triggerHook={0} indicators={false}>
+        <Scene duration={height} triggerHook={0} indicators={false}>
           <Timeline target={<Cup ref={ref} />}>
             <Tween
               from={{ backgroundPosition: "-150px 50px" }}

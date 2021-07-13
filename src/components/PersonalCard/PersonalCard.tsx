@@ -3,8 +3,6 @@ import email from "../../images/email.png";
 import github from "../../images/github.png";
 import linkedin from "../../images/linkedin.png";
 import { SocialMedia } from "../SocialMedia/SocialMedia";
-import { Email } from "../Email/Email";
-import { useState } from "react";
 
 export const PersonalCard: React.FC = () => {
   return (
@@ -14,7 +12,7 @@ export const PersonalCard: React.FC = () => {
           <img
             className="w-32 h-32 object-cover bg-white rounded-full border-4 border-blue-500 -mt-24"
             src={profilepicture}
-            alt={"profile picture"}
+            alt={"Profile"}
           />
         </div>
         <div className="text-blue-900 font-semibold text-center text-2xl mt-4">

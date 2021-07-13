@@ -17,7 +17,6 @@ import mongodb from "../../images/mongodb.png";
 import sequelize from "../../images/sequelize.png";
 import jest from "../../images/jest.png";
 import grains from "../../images/grains.png";
-import { Modal } from "../Modal/Modal";
 
 export const Resume: React.FC = () => {
   return (
