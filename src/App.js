@@ -6,10 +6,10 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/resume" component={Home} />
         <Route exact path="/contact" component={Contact} />
         <Route path="*">
-          <Redirect to="/" />
+          <Redirect to="/resume" />
         </Route>
       </Switch>
     </BrowserRouter>
