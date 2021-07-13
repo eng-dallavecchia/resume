@@ -6,7 +6,7 @@ import { SocialMedia } from "../SocialMedia/SocialMedia";
 
 export const PersonalCard: React.FC = () => {
   return (
-    <div className="bg-blue-200 h-screen pt-44 pb-36">
+    <div className="bg-coffee bg-small h-screen pt-44 pb-36 px-4">
       <div className="bg-white w-full max-w-md mx-auto rounded-lg shadow-lg justify-center pt-4">
         <div className="flex justify-center md:justify-center mt-4">
           <img
@@ -20,7 +20,7 @@ export const PersonalCard: React.FC = () => {
         </div>
         <div className="text-blue-500 text-center text-justify mx-8 my-4">
           {
-            "Hey! Let's keep in touch. Click one the links bellow to check out my social media:"
+            "Hey! Let's keep in touch. Click one the links be low to check out my social media:"
           }
         </div>
         <div className="flex flex-row justify-center mx-8 pb-4">

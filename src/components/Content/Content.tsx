@@ -31,7 +31,7 @@ export const Content: React.FC<Props> = ({ Children }) => {
       document.documentElement.offsetHeight -
         window.innerHeight -
         window.scrollY <
-      0.1
+      2
     )
       openModal();
   };
@@ -53,7 +53,7 @@ export const Content: React.FC<Props> = ({ Children }) => {
   }, []);
 
   return (
-    <div className="bg-blue-200">
+    <div className="bg-coffee bg-small bg-repeat bg-opacity-10">
       <Controller>
         <Scene duration={height} triggerHook={0} indicators={false}>
           <Timeline target={<Cup ref={ref} />}>
